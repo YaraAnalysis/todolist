@@ -30,6 +30,12 @@ public class TaskController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body("A data de início / término deve ser maior do que a data atual.");
         }
+
+        if(taskModel.getStartAt().isAfter(taskModel.getEndAt())) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body("A data de término deve ser maior do que a data de início.");
+        }
+
         var task = this.taskRepository.save(taskModel);
         return ResponseEntity.status(HttpStatus.OK).body(task);
     }
