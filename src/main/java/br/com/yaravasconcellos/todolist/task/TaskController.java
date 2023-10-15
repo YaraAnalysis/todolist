@@ -53,8 +53,9 @@ public class TaskController {
 
     //HttpServletRequest request - pra que o usuário esteja autenticado, e pegar o id do usuário]
     @PutMapping("/{id}")
-    public TaskModel update(@RequestBody TaskModel taskModel, HttpServletRequest request, @PathVariable UUID id) {
-        
+    public TaskModel update(@RequestBody TaskModel taskModel, @PathVariable UUID id, HttpServletRequest request) {
+        var idUser = request.getAttribute("idUser");
+        taskModel.setIdUser((UUID) idUser);
         taskModel.setId(id);
         return this.taskRepository.save(taskModel);
     }
