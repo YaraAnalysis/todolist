@@ -8,7 +8,7 @@ Projeto Gerenciador de tarefas, desenvolvido em Java para estudo da linguagem.
 Java 17 <br>
 SpringBoot 3.0.11 <br>
 Maven <br>
-h2database <br>
+DB h2database (em memória) <br>
 
 ## Configuração do ambiente de desenvolvimento
 Clonar o repositório ```git clone <url_git>``` <br>
